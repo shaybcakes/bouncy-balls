@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://daw2761mw5uep"]
+
+[ext_resource type="Script" path="res://circlecollide.gd" id="1_qab47"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vltdj"]
+friction = 0.0
+bounce = 0.99
+
+[node name="Capsule" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_vltdj")
+script = ExtResource("1_qab47")
+num_sides = 45
+radius = 250.0

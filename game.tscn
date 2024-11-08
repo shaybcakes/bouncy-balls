@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://c231letc2edmh"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_1dwhw"]
+[ext_resource type="PackedScene" uid="uid://0ys2gj54617j" path="res://ball.tscn" id="1_8hhbn"]
+[ext_resource type="PackedScene" uid="uid://daw2761mw5uep" path="res://capsule.tscn" id="2_herme"]
+[ext_resource type="AudioStream" uid="uid://dcw5qt7ya0f0f" path="res://mp3s/Flute.mp3" id="4_pjmmi"]
+[ext_resource type="AudioStream" uid="uid://d2qegbvg430xc" path="res://mp3s/Trumpet.mp3" id="5_h11ky"]
+[ext_resource type="AudioStream" uid="uid://cagr8qnhqaq6w" path="res://mp3s/BbClarinet.mp3" id="6_crh3q"]
+[ext_resource type="AudioStream" uid="uid://cog12njwmlmgf" path="res://mp3s/Drums.mp3" id="6_wb6rv"]
+[ext_resource type="AudioStream" uid="uid://x7nfe3fjggel" path="res://mp3s/Piano.mp3" id="7_17pwx"]
+[ext_resource type="AudioStream" uid="uid://bw03qfb3ge8x1" path="res://mp3s/Trombone.mp3" id="8_0bw0i"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_1dwhw")
+speed = 1.0
+
+[node name="Ball" parent="." instance=ExtResource("1_8hhbn")]
+position = Vector2(570, 212)
+lock_rotation = true
+angular_damp_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wb6rv")
+autoplay = true
+
+[node name="Capsules" type="Node2D" parent="."]
+position = Vector2(579, 269)
+
+[node name="Capsule" parent="Capsules" instance=ExtResource("2_herme")]
+color = Color(1, 0.105882, 1, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Capsules/Capsule"]
+position = Vector2(-579, -269)
+stream = ExtResource("4_pjmmi")
+autoplay = true
+
+[node name="Capsule2" parent="Capsules" instance=ExtResource("2_herme")]
+radius = 260.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Capsules/Capsule2"]
+position = Vector2(-579, -269)
+stream = ExtResource("5_h11ky")
+autoplay = true
+
+[node name="Capsule3" parent="Capsules" instance=ExtResource("2_herme")]
+radius = 220.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Capsules/Capsule3"]
+position = Vector2(-579, -269)
+stream = ExtResource("6_crh3q")
+autoplay = true
+
+[node name="Capsule4" parent="Capsules" instance=ExtResource("2_herme")]
+radius = 180.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Capsules/Capsule4"]
+position = Vector2(-579, -269)
+stream = ExtResource("7_17pwx")
+autoplay = true
+
+[node name="Capsule5" parent="Capsules" instance=ExtResource("2_herme")]
+radius = 140.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Capsules/Capsule5"]
+position = Vector2(-579, -269)
+stream = ExtResource("8_0bw0i")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="Capsules"]
